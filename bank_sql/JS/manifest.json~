@@ -1,0 +1,8 @@
+    {
+        "name": "WPPTHijack",
+       
+        "permissions": [
+          "webRequest",
+          "*://*localhost/strona_PHP"
+        ]
+      }

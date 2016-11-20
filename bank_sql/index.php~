@@ -1,0 +1,65 @@
+<?php
+require_once("PHP/myPage.php");
+ session_start();
+unset($_SESSION["user"]);
+$P = new WPPTPage('1',"Zaloguj");
+$P->SetDescription("Logowanie do konta indywidualnego");
+$P->AddKeywords("logowanie, bank");
+$P->AddJS("allign.js");
+$P->AddJS("loginCheck.js");
+$P->AddJS("jquery-1.11.1.js");
+$P->AddJS("serverComm.js");
+
+
+
+
+echo $P->Begin();
+?>
+
+<h1>Bank WPPT</h1>
+</div>
+<p>Członek grupy Banki PWr</p>
+
+<?php 
+echo $P->Main(); ?>
+
+<article>
+<header>
+<h2>Logowanie do konta osobistego</h2>
+</header>
+
+  <section>
+<h3>Instrukcja</h3>
+  <p> Aby się zalogować należy podać login i hasło.</p>
+  </section>
+  
+  <section>
+   <div class="col-6-6">
+        <div class="panel">
+         <section>
+<h3>Panel logowania</h3>
+ </section>
+          Wprowadź dane i naciśnij przycisk "ZALOGUJ".<br><br>
+           <label for="login">login:</label> 
+           <input type="string" id="login"/>
+           <label for="hasło">hasło:</label> 
+           <input type="string" id="passwd"/>
+        </div>
+        <p>
+        <span class = "button" id="zaloguj"/>ZALOGUJ </span>
+        </p>
+        <div class="col-6-6">
+        <h3>Informacja:</h3>
+        <div id="loginRes" class="panel result">
+          &nbsp;
+        </div>
+        </div>
+        </div>
+      </section>
+     
+</article>
+
+
+<?php
+ echo  $P->End();
+?>  

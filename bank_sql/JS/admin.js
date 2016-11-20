@@ -1,0 +1,46 @@
+
+           
+           
+
+$(document).ready(function(){
+ $.ajax({
+            type:'POST', /*Informacja o tym, że dane będą pobierane*/
+            url:'getNotAccepted.php', /*Informacja, o tym jaki plik będzie przy tym wykorzystywany*/
+            dataType:'json', /*Informacja o formacie transferu danych*/
+             
+                /*Działania wykonywane w przypadku sukcesu*/
+                success: function(json) { /*Funkcja zawiera parametr*/
+                //alert( json);
+                 for (var klucz in json)
+                        {
+                        
+                        	 var output=json[klucz]   
+                           
+                            
+                            document.getElementById("historyField").innerHTML+="<label for=\"id\">id: </label>"+output[0]+"<br><label for=\"login\">login: </label>"+output[1]+"<br><label for=\"z numeru\">z numeru </label>"+output[2]+"<br><label for=\"na numer\">na numer: </label>"+output[3]+"<br><label for=\"nazwa\">nazwa: </label>"+output[4]+"<br><label for=\"adres\">adres: </label>"+output[5]+"<br><label for=\"kwota\">kwota: </label> "+output[6]+"<br><label for=\"data\">data: </label> "+output[7]+"<br><br>";
+                           
+                             
+                         
+                        } 
+                        
+                        
+                        
+                     
+                 
+                },
+                 
+                 
+                /*Działania wykonywane w przypadku błędu*/
+                error: function(blad) {
+                    alert( "Wystąpił błąd1");
+                    console.log(blad); /*Funkcja wyświetlająca informacje 
+                    o ewentualnym błędzie w konsoli przeglądarki*/
+                }
+             
+        });
+                    
+       
+
+
+
+});

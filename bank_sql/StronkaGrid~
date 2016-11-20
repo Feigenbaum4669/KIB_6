@@ -1,0 +1,59 @@
+
+
+<body>
+
+<div id="pageContainer">
+
+<header>
+<img id="logo" src="InfWPPT.png" alt="">
+<h1>Podstawowe algorytmy</h1>
+<p>Na stronach tych omówione są najciekawsze algorytmy omawiane na wykładzie ze <cite>Wstępu do Informatyki</cite> na pierwszym
+roku studiów informatycznych na Wydziale PPT PWr.</p>
+</header>
+
+
+
+<div class="row">
+<div class="col-2-6">
+<div id="leftMenu"> 
+<div id="showMenu">
+Menu &#9776;
+</div>
+
+
+<div id="innerMenu">
+<nav>
+<ul>
+  <li class="navList"><a>Algorytm Euklidesa</a></li>
+  <li class="navList"><a>Rozszerzony Algorytm Euklidesa</a></li>
+  <li class="navList"><a>Test pierwszości</a></li>
+  <li class="navList"><a>Sito Eratostenesa</a></li>
+  <li class="navList"><a>Sortowanie przez wstawianie</a></li>
+  <li class="navList"><a>Sortowanie przez scalanie</a></li>
+  <li class="navList"><a>Wyszukiwanie binarne</a></li>
+  <li class="home">Problem wież z Hanoi</li>
+  <li class="navList"><a>Problem Hetmanów</a></li>
+  <li class="navList"><a>Problem skoczka szachowego</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+
+<div class="col-4-6">
+<div id="content"> 
+/* cały content
+</div>
+</div>
+</div>
+
+
+<div class="col-6-6">
+<footer>
+<p>Copyrigth &copy; 2016 WPPT PWr</p>
+</footer>
+</div>
+
+</div>
+</body> 
+</html> 

@@ -1,0 +1,66 @@
+<?php
+require_once("PHP/myPage.php");
+
+$P = new WPPTPage('3',"Wykonaj przelew");
+$P->SetDescription("Przelew na inne konto");
+$P->AddKeywords("przelew, bank");
+$P->AddJS("jquery-1.11.1.js");
+$P->AddJS("serverComm.js");
+$P->AddJS("allign.js");
+
+echo $P->Begin();
+?>
+
+<h1>Bank WPPT</h1>
+</div>
+<p>Członek grupy Banki PWr</p>
+
+<?php 
+echo $P->Main(); ?>
+
+<article>
+<header>
+<h2>Przelew na inne konto</h2>
+</header>
+
+  <section>
+<h3>Instrukcja</h3>
+  <p> Aby dokonać przelewu należy wypełnić wszystskie poniższe pola. Następnie nacisnąć przycis "PRZELEJ".</p>
+  </section>
+  
+  <section>
+   <div class="col-6-6">
+        <div class="panel">
+            <section>
+<h3>Panel przelewu</h3>
+</section>
+          Wprowadź dane i naciśnij przycisk "PRZELEJ".<br><br>
+           <label for="numer_konta">numer konta:</label> 
+           <input type="string" id="acc_number"/>
+           <label for="nazwa">nazwa:</label> 
+           <input type="string" id="name"/>
+            <label for="adres">adres:</label> 
+           <input type="string" id="address"/>
+           <label for="kwota">kwota:</label> 
+           <input type="string" id="value"/>
+        </div>
+        <p>
+        <span class = "button" id="potwierdz"/>PRZELEJ </span>
+        </p>
+        <div class="col-6-6">
+        <h3>Informacja:</h3>
+        <div id="loginRes" class="panel result">
+          &nbsp;
+        </div>
+        </div>
+        </div>
+      </section>
+</article>
+
+
+
+
+
+<?php
+ echo  $P->End();
+?>  

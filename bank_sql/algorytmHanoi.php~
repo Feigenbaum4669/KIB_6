@@ -1,0 +1,121 @@
+<?php
+require_once("PHP/myPage.php");
+
+$P = new WPPTPage('8',"Problem wież z Hanoi");
+$P->SetDescription("Opis algorytmu wież z Hanoi");
+$P->AddKeywords("algorytm, hanoi");
+$P->AddJS("hanoi.js");
+$P->AddJS("allign.js");
+
+echo $P->Begin();
+?>
+
+<h1>Podstawowe algorytmy</h1>
+</div>
+<p>Na stronach tych omówione są najciekawsze algorytmy omawiane na wykładzie ze <cite>Wstępu do Informatyki</cite> na pierwszym
+roku studiów informatycznych na Wydziale PPT PWr.</p>
+
+<?php 
+echo $P->Main(); ?>
+
+<article>
+<header>
+<h2>Problem wież z Hanoi</h2>
+</header>
+
+  <section>
+<h3>Podstawowe informacje</h3>
+  <p> Wieże Hanoi – problem polegający na odbudowaniu, z zachowaniem kształtu, wieży z krążków o różnych średnicach (popularna dziecięca zabawka), przy czym podczas przekładania wolno się posługiwać buforem (reprezentowanym w tym przypadku przez dodatkowy słupek), jednak przy ogólnym założeniu, że nie wolno kłaść krążka o większej średnicy na mniejszy ani przekładać kilku krążków jednocześnie.
+  Jest to przykład zadania, którego złożoność obliczeniowa wzrasta niezwykle szybko w miarę zwiększania parametru wejściowego, tj. liczby elementów wieży.</p>
+  </section>
+  
+  <aside>
+<h3>Rys historyczny</h3>
+  Zagadka Wież Hanoi powstała prawdopodobnie w Azji Wschodniej w XIX wieku lub wcześniej. Krążki były ceramiczne, produkowane w Chinach, Japonii i Wietnamie. Gra ta została sprowadzona na Zachód po raz pierwszy przez francuskiego matematyka Édouarda Lucasa w 1883 roku. Do sprzedawanego zestawu dołączona była tybetańska legenda, według której mnisi w świątyni Brahmy rozwiązują
+  tę łamigłówkę dla 64 złotych krążków. Legenda mówi, że gdy mnisi zakończą zadanie, nastąpi koniec świata. Zakładając, że wykonują 1 ruch na sekundę, ułożenie wieży zajmie około 584 miliardów lat. Dla porównania: Wszechświat ma około 13,7 mld lat.
+  </aside>
+  
+  <section>
+  <h3>Rozwiązanie rekurencyjne</h3>
+  <p>Algorytm rekurencyjny składa się z następujących kroków:</p>
+  
+  <ol>
+  <li> przenieś (rekurencyjnie) n-1 krążków ze słupka A na słupek B posługując się słupkiem C, </li>
+  <li> przenieś jeden krążek ze słupka A na słupek C, </li>
+  <li>  przenieś (rekurencyjnie) n-1 krążków ze słupka B na słupek C posługując się słupkiem A. </li>
+  </ol>
+  </section>
+  
+<section>
+<div class="col-3-6">
+  <h3>Pseudo-kod funkcji</h3>
+  <div id="code1">
+  <pre>
+  function <b>MoveTower</b>(disk, source, dest, spare):
+    if disk == 0, then:
+	move disk from source to dest
+    else:
+	<b>MoveTower</b>(disk - 1, source, spare, dest)   
+	move disk from source to dest              
+	<b>MoveTower</b>(disk - 1, spare, dest, source)   
+    end if
+  </pre>
+  </div>
+  </div>
+  <div class="col-3-6">
+  <h3>JavaScript</h3>
+  <div id="code2">
+  <pre>
+  var <b>hanoi</b> = function(disc,src,aux,dst) {
+    if (disc > 0) {
+        <b>hanoi</b>(disc - 1,src,dst,aux);
+        //"Move disc"+disc+"from"+src+"to"+dst";
+        <b>hanoi</b>(disc - 1,aux,src,dst);
+    }
+};
+  </pre>
+  </div>
+  </div>
+</section>
+
+   <section>
+    <div class="col-6-6">
+  <h3>Rozwiązanie iteracyjne</h3>
+  <p>Algorytm iteracyjny składa się z następujących kroków:</p>
+  
+  <ol>
+  <li> przenieś najmniejszy krążek na kolejny (*) słupek, </li>
+  <li> wykonaj jedyny możliwy do wykonania ruch, nie zmieniając położenia krążka najmniejszego, </li>
+  <li>  powtarzaj punkty 1 i 2, aż do odpowiedniego ułożenia wszystkich krążków. </li>
+  </ol>
+
+    <p>(*) Kolejny słupek wyznaczamy w zależności od liczby krążków. Jeśli liczba krążków jest parzysta, kolejnym słupkiem jest ten po prawej stronie (gdy dojdziemy do słupka C w następnym ruchu używamy słupka A). Natomiast jeśli liczba krążków jest nieparzysta,
+    kolejnym słupkiem jest ten po lewej stronie (gdy dojdziemy do słupka A w następnym ruchu używamy słupka C).</p>
+  </div>
+  </section>
+  
+  <section>
+   <div class="col-6-6">
+        <h3>Działanie algorytmu</h3>
+        <div class="panel">
+          Wprowadź liczbę krążków N i następnie naciśnij przycisk "Symuluj".<br><br>
+           <label for="N">N:</label> 
+           <input type="number" min="1" max="1000000" value="3" id="varN"/>
+        </div>
+        <p>
+        <span class = "button" id="Symuluj" onclick="outerhanoi('Src', 'Spa', 'Dst')"/>SYMULUJ </span>
+        </p>
+        <div class="col-6-6">
+        <h3>Symulacja</h3>
+        <div id="trace" class="panel result">
+          &nbsp;
+        </div>
+        </div>
+        </div>
+      </section>
+</article>
+
+
+<?php
+ echo  $P->End();
+?>  

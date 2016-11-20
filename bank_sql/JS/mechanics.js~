@@ -1,0 +1,43 @@
+function toggleMenu(){
+	var el = document.getElementById("innerMenu");
+	if (el.style.display != 'block'){
+		el.style.display = 'block';
+	} else {
+		el.style.display = 'none';
+	}
+}
+
+window.onload = function(){
+	document.getElementById("showMenu").onclick = toggleMenu;
+}
+
+window.onresize=function(){
+var xd=window.innerWidth;
+if(xd>760){
+document.getElementById("innerMenu").style.display='inline'
+}
+}
+
+function alignMyDivs(){
+  var els = [document.getElementById("col1"), 
+  document.getElementById("col2"), ];
+  
+  //Niech przegladarka sama przeliczy potrzebne wysokości
+  for (var i=0;i<els.length;i++){
+	els[i].style.height = "auto";
+  }
+  //Wyznaczamy maksimum z wysokości
+  var h = 0;
+  for (i=0; i<els.length; i++){
+	h = Math.max(h,els[i].clientHeight);
+  }
+  //Ustawiamy sami wysokości
+  for (var i=0;i<els.length;i++){
+	els[i].style.height = h + "px";
+  }
+}
+
+window.onload = function(){
+	alignMyDivs();
+	window.onresize = alignMyDivs;
+}
